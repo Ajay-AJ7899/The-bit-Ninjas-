@@ -33,6 +33,7 @@
             "clsx": "*",
             "cmdk": "^1.1.1",
             "embla-carousel-react": "^8.6.0",
+            "ethers": "^6.15.0",
             "git": "^0.1.5",
             "input-otp": "^1.4.2",
             "lucide-react": "^0.487.0",
@@ -50,7 +51,7 @@
       "devDependencies": {
             "@types/node": "^20.10.0",
             "@vitejs/plugin-react-swc": "^3.10.2",
-            "vite": "6.3.5"
+            "vite": "^6.3.5"
       },
       "scripts": {
             "dev": "vite",

@@ -21,9 +21,11 @@ interface LoginModalProps {
   isOpen: boolean;
   onClose: () => void;
   portalType: 'admin' | 'ngo' | 'investor';
-  onLoginSuccess: () => void;
   onShowRegistration: () => void;
+  onLoginSuccess: (walletAddress: string) => void; // add this
 }
+
+
 
 export function LoginModal({ 
   isOpen, 
@@ -52,7 +54,7 @@ export function LoginModal({
       default: return 'Portal';
     }
   };
-
+  
   const getPortalColor = () => {
     switch (portalType) {
       case 'admin': return 'from-blue-500 to-indigo-500';
@@ -155,7 +157,7 @@ export function LoginModal({
       const expectedUser = mockUsers[portalType];
       if (credentials.username === expectedUser.username && credentials.password === expectedUser.password) {
         // Successful login
-        onLoginSuccess();
+        onLoginSuccess(walletAddress);
       } else {
         throw new Error('Invalid username or password');
       }

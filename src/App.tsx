@@ -54,15 +54,15 @@ export default function App() {
     }
   };
 
-  const handleLoginSuccess = () => {
+  const handleLoginSuccess = (address: string) => {
     if (pendingPortalType) {
       setAuthState({
         isAuthenticated: true,
         userType: pendingPortalType,
         user: {
-          username: `${pendingPortalType}_user`, // Mock user
-          walletAddress: '0x742d...9C4A' // Mock wallet
-        }
+          username: `${pendingPortalType}_user`,
+          walletAddress: address, // use real address
+        },
       });
       setSelectedPortal(pendingPortalType);
       setShowLoginModal(false);
