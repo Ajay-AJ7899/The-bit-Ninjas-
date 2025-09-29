@@ -21,7 +21,7 @@ interface LoginModalProps {
   isOpen: boolean;
   onClose: () => void;
   portalType: 'admin' | 'ngo' | 'investor';
-  onLoginSuccess: () => void;
+  onLoginSuccess: (walletAddress: string) => void;
   onShowRegistration: () => void;
 }
 
@@ -154,8 +154,8 @@ export function LoginModal({
 
       const expectedUser = mockUsers[portalType];
       if (credentials.username === expectedUser.username && credentials.password === expectedUser.password) {
-        // Successful login
-        onLoginSuccess();
+        // Successful login - pass the captured wallet address
+        onLoginSuccess(walletAddress || '0x742d35Cc...8B9C4A');
       } else {
         throw new Error('Invalid username or password');
       }
